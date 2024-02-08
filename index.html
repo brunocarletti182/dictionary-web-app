@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/styles/reset.css">
+  <link rel="stylesheet" href="./assets/styles/index.css">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Dictionary web app</title>
+</head>
+<body>
+
+  <div class="page">
+
+    <section class="config">
+      <img class="config-logo" src="./assets/images/logo.svg">
+      <div class="config-font">
+        <div class="font-title">Sans-serif</div> 
+        <ul class="font-list">
+          <li class="font-option" onclick="changeFont('Sans-serif')">Sans-serif</li>
+          <li class="font-option" onclick="changeFont('Serif')">Serif</li>
+          <li class="font-option" onclick="changeFont('mono')">Mono</li>
+        </ul>
+      </div>
+
+      <div class="config-nightmode">
+        <label class="switch">
+          <input type="checkbox" id="modeSwitch">
+          <span class="slider"></span>
+        </label>
+        <img src="./assets/images/icon-moon.svg" alt="Nigh mode icon">
+      </div>
+    </section>
+
+    <section class="search">
+      <input class="search-bar" type="text" name="Keyboard" placeholder="Keyboard">
+      <button class="search-button">
+        <img class="search-img" src="./assets/images/icon-search.svg" alt="">
+      </button>
+    </section>
+    
+    <section class="word-definition">
+      
+    </section>
+
+  </div>
+  <script src="./assets/scripts/index.js"></script>
+</body>
+</html>

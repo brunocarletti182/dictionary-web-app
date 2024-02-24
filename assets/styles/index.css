@@ -207,6 +207,10 @@ body {
   width: 66px;
 }
 
+a {
+  margin-bottom: 20px;
+}
+
 .switch-container {
   position: fixed;
   top: 20px;

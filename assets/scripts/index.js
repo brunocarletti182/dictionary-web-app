@@ -2,8 +2,10 @@
 const fontList = document.querySelector('.font-list');
 const fontTitle = document.querySelector('.font-title');
 const fontOption = document.querySelector('.font-option');
-
 const body = document.body;
+
+const searchBar = document.querySelector('.search-bar');
+const searchButton = document.querySelector('.search-button');
 
 function fontWindow(e) {
   e.stopPropagation();
@@ -13,6 +15,7 @@ function fontWindow(e) {
 function changeFont(font) {
   body.style.fontFamily = font;
   fontList.classList.remove('show-font-list');
+  fontTitle.textContent = font;
 }
 
 fontTitle.addEventListener('click', fontWindow);
@@ -73,9 +76,10 @@ async function createData() {
         <p>${getData[0].meanings[2].definitions[0].definition}</p>
         <div class="definition-container">
           <h4 class="definition-source">Source</h4>
-          <a href="https://en.wiktionary.org/wiki/${getInput}" target="_blank" class="definition-wiki">https://en.wiktionary.org/wiki/${getInput}/</a>
+          <a class"wiki-link" href="https://en.wiktionary.org/wiki/${getInput}" target="_blank" class="definition-wiki">https://en.wiktionary.org/wiki/${getInput}/</a>
         </div>
       </div>`;
+      
     wordDefinitionElement.innerHTML = resultContent;
 
     const showSound = document.querySelector('.show-sound');
@@ -86,12 +90,18 @@ async function createData() {
   } else {
     wordDefinitionElement.innerHTML = `<div class="not-found-container">
                                         <img class="not-found-img" src="./assets/images/emoji.png" alt="No results" class="no-definitions">
-                                        <h3>No Definitions Found</h3>
+                                        <h3>No Definitions Found for "${getInput}"</h3>
                                         <p>Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at a later time or head to the web instead.</p>
                                        </div>`;
   }
 }
 
 // Add event listener to search button
-const searchButton = document.querySelector('.search-button');
+
 searchButton.addEventListener('click', createData);
+
+searchBar.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    createData();
+  }
+});
